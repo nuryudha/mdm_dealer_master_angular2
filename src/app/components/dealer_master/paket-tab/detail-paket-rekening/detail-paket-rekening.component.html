@@ -1,0 +1,152 @@
+<p>detail-paket-rekening works!</p>
+
+<!-- ! Kode Paket -->
+<div class="row centerAll mb-3 mt-3">
+  <label for="kode-paket" class="col-3">Kode Paket</label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <input matInput id="kode-paket" [(ngModel)]="kodePaket" disabled />
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Nama Paket -->
+<div class="row centerAll mb-3">
+  <label for="nama-paket" class="col-3">Nama Paket</label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <input matInput id="nama-paket" [(ngModel)]="namaPaket" disabled />
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Appl Tag -->
+<div class="row centerAll mb-3">
+  <label for="appl-tag" class="col-3">Appl Tag</label>
+  <div class="col">
+    <mat-form-field appearance="standard">
+      <mat-select
+        placeholder="--SILAHKAN PILIH--"
+        [(ngModel)]="listApplTagid"
+        disabled
+      >
+        <mat-option> --SILAHKAN PILIH-- </mat-option>
+        <mat-option
+          *ngFor="let element of dataListApplTag"
+          [value]="element.applTagId"
+        >
+          {{ element.applTagDesc }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Tabel -->
+<div class="row centerAll">
+  <div class="col">
+    <mat-card class="tabel-tambah-informasi-employee">
+      <table
+        mat-table
+        matSort
+        [dataSource]="dataSourceInfoRek"
+        style="width: 100%"
+      >
+        <!-- tipeRekening Column -->
+        <ng-container matColumnDef="tipeRekening">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-header"
+            mat-sort-header
+          >
+            Tipe Rekening
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.tipeRekening }}</td>
+        </ng-container>
+
+        <!-- Bank Column -->
+        <ng-container matColumnDef="bank">
+          <th mat-header-cell *matHeaderCellDef class="text-header">Bank</th>
+          <td mat-cell *matCellDef="let element; let rowIndex = index">
+            <mat-form-field appearance="standard" style="width: 80%">
+              <mat-select
+                placeholder="--SILAHKAN PILIH--"
+                [(ngModel)]="selectedBankList[rowIndex]"
+              >
+                <mat-option> --SILAHKAN PILIH-- </mat-option>
+                <mat-option
+                  *ngFor="let bank of dataListBank"
+                  [value]="bank.bankCode"
+                >
+                  {{
+                    bank.bankCode +
+                      " - " +
+                      bank.bankName +
+                      " - " +
+                      bank.acc_no +
+                      " A.N. " +
+                      bank.acc_name
+                  }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <!-- Account No Column -->
+        <ng-container matColumnDef="accountNo">
+          <th mat-header-cell *matHeaderCellDef class="text-header">
+            Account No
+          </th>
+          <td mat-cell *matCellDef="let element; let rowIndex = index">
+            <p>{{ selectedBankList[rowIndex]?.acc_no }}</p>
+          </td>
+        </ng-container>
+
+        <!-- Account Name Column -->
+        <ng-container matColumnDef="accountName">
+          <th mat-header-cell *matHeaderCellDef class="text-header">
+            Account Name
+          </th>
+          <td mat-cell *matCellDef="let element; let rowIndex = index">
+            <p>{{ selectedBankList[rowIndex]?.acc_name }}</p>
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns"
+          class="line-header"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          class="color-row"
+        ></tr>
+      </table>
+    </mat-card>
+  </div>
+</div>
+
+<!-- ! Button Save Reset -->
+<div class="d-flex mt-2">
+  <div class="me-auto p-2">
+    <button mat-raised-button color="primary" (click)="backPaketRekening()">
+      Back
+    </button>
+  </div>
+  <div class="p-2">
+    <button
+      mat-raised-button
+      color="primary"
+      class="me-1"
+      (click)="saveEditRekening()"
+    >
+      Save
+    </button>
+  </div>
+  <div class="p-2">
+    <button mat-raised-button color="warn" disabled>Reset</button>
+  </div>
+</div>

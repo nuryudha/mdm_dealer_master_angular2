@@ -1,0 +1,48 @@
+label {
+  display: flex;
+  align-items: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.centerAll {
+  display: flex;
+  align-items: baseline;
+}
+
+.title-font {
+  font-family: Roboto;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+}
+
+mat-card.tabel-tambah-informasi-employee {
+  margin-top: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+tr.line-header {
+  border-top: solid 1px rgb(224, 224, 224);
+}
+
+tr.color-row:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tr.color-row:hover {
+  background: rgb(206, 234, 252);
+}
+
+th.text-header {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.button-end {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-end;
+}

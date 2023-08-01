@@ -1,0 +1,58 @@
+.tittle-heading {
+  background-color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  box-shadow: 0px 1px 2px #ababab;
+}
+
+.title-font {
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+}
+
+.page-title {
+  padding: 3px 15px;
+}
+
+.nav-tabs {
+  border: none;
+}
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.req::before {
+  content: "*";
+  display: inline;
+  color: #e6674a;
+  margin: 0 3px;
+  font-weight: 400;
+}
+
+table {
+  width: 100%;
+}
+
+::ng-deep .mat-tab-labels {
+  background-color: rgb(255, 255, 255);
+}
+
+::ng-deep .mat-tab-group.mat-accent .mat-ink-bar {
+  height: 0.7mm;
+  background-color: #003d79;
+}
+
+::ng-deep .mat-tab-label {
+  color: #696969;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+::ng-deep .mat-tab-label.mat-tab-label-active {
+  opacity: 1;
+  font-weight: 600;
+  color: #003d79;
+}

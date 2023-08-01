@@ -1,0 +1,114 @@
+<div class="title-list mt-2">
+  <div class="flex">
+    <div class="me-auto">
+      <span class="title-font">Tambah Dealer Rekening </span>
+    </div>
+    <button mat-icon-button class="button-close" (click)="closeSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
+
+<form (ngSubmit)="saveRekening()" [formGroup]="form">
+  <!-- ! Bank -->
+  <div class="row centerAll mb-3 mt-3">
+    <label for="bank" class="col-3" required>Bank</label>
+    <div class="col">
+      <mat-form-field appearance="standard">
+        <mat-select
+          placeholder="--SILAHKAN PILIH--"
+          (selectionChange)="onChangeBank($event.value)"
+          [(ngModel)]="bankAccount"
+          formControlName="bankAccount"
+          name="bankAccount"
+        >
+          <mat-select-filter
+            [displayMember]="'bankName'"
+            [array]="dataListBank"
+            (filteredReturn)="filteredBank = $event"
+          >
+          </mat-select-filter>
+          <mat-option
+            *ngFor="let element of filteredBank"
+            [value]="element.bankCode"
+          >
+            {{ element.bankName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- ! Cabang Bank -->
+  <div class="row centerAll mb-3">
+    <label for="cabang-bank" class="col-3">Cabang Bank</label>
+    <div class="col">
+      <mat-form-field appearance="standard">
+        <mat-select
+          placeholder="--SILAHKAN PILIH--"
+          (selectionChange)="onChangeCabang($event.value)"
+          [(ngModel)]="namaCabang"
+          formControlName="namaCabang"
+          name="namaCabang"
+          [disabled]="disabledCabang"
+        >
+          <mat-select-filter
+            [displayMember]="'bankCabang'"
+            [array]="dataListCabangBank"
+            (filteredReturn)="filteredCabangBank = $event"
+          >
+          </mat-select-filter>
+          <mat-option
+            *ngFor="let element of filteredCabangBank"
+            [value]="element.bankBranch"
+          >
+            {{ element.bankCabang }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- ! Account No -->
+  <div class="row centerAll mb-3">
+    <label for="account-no" class="col-3">Account No</label>
+    <div class="col">
+      <mat-form-field appearance="standard">
+        <input
+          matInput
+          appNumberOnly
+          id="no"
+          [(ngModel)]="noAccount"
+          formControlName="noAccount"
+          name="noAccount"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- ! Account Name -->
+  <div class="row centerAll mb-3">
+    <label for="account-name" class="col-3">Account Name</label>
+    <div class="col">
+      <mat-form-field appearance="standard">
+        <input
+          matInput
+          appAlfabetOnly
+          id="nama"
+          [(ngModel)]="namaAccount"
+          formControlName="namaAccount"
+          name="namaAccount"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- ! Button Save Reset -->
+
+  <div class="button-end">
+    <button mat-raised-button color="primary" class="me-2">Save</button>
+    <button mat-raised-button color="warn" (click)="resetRekening()">
+      Reset
+    </button>
+  </div>
+</form>

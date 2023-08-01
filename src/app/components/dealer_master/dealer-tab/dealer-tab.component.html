@@ -1,0 +1,441 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Informasi Dealer</h1>
+  </div>
+  <div class="card-body">
+    <!-- input field dealer -->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="d-flex justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Badan Usaha</span><span class="req"></span>
+          </div>
+          <div class="col-3 input-field">
+            <mat-form-field appearance="fill">
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="col d-flex input-field">
+            <div class="test">
+              <mat-form-field appearance="fill">
+                <input [readonly]="true" matInput />
+              </mat-form-field>
+            </div>
+            <div class="d-flex align-items-center">
+              <button class="d-flex btn btn-search ms-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="white"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between mt-3 input-area">
+          <div class="col-3 label-custom">
+            <span>Dealer</span>
+          </div>
+          <div class="col-2 input-field">
+            <mat-form-field appearance="fill">
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="standard">
+              <input matInput />
+            </mat-form-field>
+            <div class="d-flex align-items-center">
+              <button
+                class="d-flex btn btn-search ms-2"
+                (click)="showListDealer()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="white"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </button>
+              <button class="d-flex btn btn-add ms-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="white"
+                  class="bi bi-plus-lg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 d-flex justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Alamat</span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="standard">
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="mt-3 d-flex justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>RT/RW</span>
+          </div>
+          <div class="col-3 d-flex input-field">
+            <mat-form-field appearance="standard">
+              <input matInput />
+            </mat-form-field>
+          </div>
+          <div
+            class="col-2 d-flex justify-content-center align-items-center input-field"
+          >
+            <span>/</span>
+          </div>
+          <div class="col-3 d-flex input-field">
+            <mat-form-field appearance="standard">
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Kelurahan</span><span class="req"></span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="fill">
+              <input matInput />
+            </mat-form-field>
+            <div class="d-flex align-items-center">
+              <button
+                class="d-flex btn btn-search ms-2"
+                (click)="showDialog('kelurahan')"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="white"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Kecamatan</span><span class="req"></span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="fill">
+              <input matInput />
+            </mat-form-field>
+            <div
+              class="d-flex align-items-center"
+              (click)="showDialog('kecamatan')"
+            >
+              <button class="d-flex btn btn-search ms-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="white"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Provinsi</span><span class="req"></span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="fill">
+              <input matInput />
+            </mat-form-field>
+            <div class="d-flex align-items-center">
+              <button
+                class="d-flex btn btn-search ms-2"
+                (click)="showDialog('provinsi')"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="white"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Kode Pos</span><span class="req"></span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="fill">
+              <input matInput />
+            </mat-form-field>
+            <div class="d-flex align-items-center">
+              <button
+                class="d-flex btn btn-search ms-2"
+                (click)="showDialog('kode pos')"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="white"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Telepon Dealer</span><span class="req"></span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="standard">
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Email Dealer</span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="standard">
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Fax Dealer</span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="standard">
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Main Dealer</span><span class="req"></span>
+          </div>
+          <div class="col input-field">
+            <mat-form-field appearance="standard">
+              <!-- <mat-label>Select</mat-label> -->
+              <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Tgl. Berdirinya Dealer</span><span class="req"></span>
+          </div>
+          <div class="col input-field">
+            <mat-form-field appearance="outline">
+              <input matInput [matDatepicker]="picker" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Jenis Dealer</span><span class="req"></span>
+          </div>
+          <div class="col input-field">
+            <mat-form-field appearance="standard">
+              <!-- <mat-label>Pilihan</mat-label> -->
+              <mat-select>
+                <mat-option value="">First option</mat-option>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Dealer Title NPWP</span><span class="req"></span>
+          </div>
+          <div class="col input-field">
+            <mat-form-field appearance="standard">
+              <!-- <mat-label>Pilihan</mat-label> -->
+              <mat-select>
+                <mat-option value="">First option</mat-option>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Supply Status</span><span class="req"></span>
+          </div>
+          <div class="col input-field">
+            <mat-form-field appearance="standard">
+              <!-- <mat-label>Pilihan</mat-label> -->
+              <mat-select>
+                <mat-option value="">First option</mat-option>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Kepemilikan NPWP</span><span class="req"></span>
+          </div>
+          <div class="col input-field">
+            <mat-radio-group
+              class="d-flex justify-content-between px-5"
+              aria-label="Select an option"
+            >
+              <mat-radio-button value="1">Option 1</mat-radio-button>
+              <mat-radio-button value="2">Option 2</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="d-flex mt-4 justify-content-between input-area">
+          <div class="col-3 label-custom"></div>
+          <div class="col input-field">
+            <section class="ps-5">
+              <mat-checkbox class="example-margin">Checked</mat-checkbox>
+            </section>
+          </div>
+        </div>
+        <div class="d-flex mt-4 justify-content-between input-area">
+          <label for="NPWP" class="col-3 label-custom">NPWP</label>
+          <div class="d-flex justify-content-between col-9">
+            <div class="col-1">
+              <mat-form-field appearance="fill">
+                <input matInput />
+              </mat-form-field>
+            </div>
+            <div class="col-1">
+              <mat-form-field appearance="fill">
+                <input matInput />
+              </mat-form-field>
+            </div>
+            <div class="col-1">
+              <mat-form-field appearance="fill">
+                <input matInput />
+              </mat-form-field>
+            </div>
+            <div class="col-1">
+              <mat-form-field appearance="fill">
+                <input matInput />
+              </mat-form-field>
+            </div>
+            <div class="col-1">
+              <mat-form-field appearance="fill">
+                <input matInput />
+              </mat-form-field>
+            </div>
+            <div class="col-1">
+              <mat-form-field appearance="fill">
+                <input matInput />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mt-3 justify-content-between input-area">
+          <div class="col-3 label-custom">
+            <span>Nama NPWP</span><span class="req"></span>
+          </div>
+          <div class="col d-flex input-field">
+            <mat-form-field appearance="fill">
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-form-field appearance="fill">
+  <mat-label>Input</mat-label>
+  <input matInput />
+</mat-form-field>
+<mat-form-field appearance="standard">
+  <mat-label>Input standard</mat-label>
+  <input matInput />
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Select</mat-label>
+  <mat-select>
+    <mat-option value="one">First option</mat-option>
+    <mat-option value="two">Second option</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Textarea</mat-label>
+  <textarea matInput></textarea>
+</mat-form-field>
+
+<!-- <mat-form-field appearance="fill">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field> -->

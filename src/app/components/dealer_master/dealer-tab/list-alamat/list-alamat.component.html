@@ -1,0 +1,158 @@
+<mat-card class="form">
+  <div class="mt-2">
+    <div class="title-list">
+      <div class="flex">
+        <div class="me-auto">
+          <span class="title-font">Search {{type}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ! Description -->
+  <div class="row centerAll mt-4">
+    <label for="description" class="col-3 text-capitalize">{{type}}</label>
+    <div class="col">
+      <div class="d-flex flex-row">
+        <div class="me-2">
+          <mat-form-field appearance="outline" style="width: 20rem">
+            <mat-label>{{type}}</mat-label>
+            <input
+              matInput
+              id="description"
+              [(ngModel)]="description"
+              oninput="this.value = this.value.toUpperCase()"
+            />
+          </mat-form-field>
+        </div>
+        <div class="centerButton">
+          <button
+            mat-raised-button
+            color="primary"
+            style="height: 3rem"
+            (click)="searchButton()"
+          >
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ! TABEL -->
+  <mat-card class="tabel-list-dealer">
+    <!-- BUTTON SEARCH -->
+    <div class="d-flex flex-row-reverse">
+      <mat-form-field
+        appearance="outline"
+        class="form-search"
+        style="width: 20rem"
+      >
+        <mat-label>
+          <mat-icon>search</mat-icon>
+          Search
+        </mat-label>
+        <input
+          matInput
+          [(ngModel)]="search_listAlamat"
+          (keyup)="applyFilter()"
+        />
+      </mat-form-field>
+    </div>
+    <!-- TABEL -->
+    <table mat-table matSort [dataSource]="dataSource" style="width: 100%">
+
+      <ng-container matColumnDef="zip_code">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          mat-sort-header
+        >
+          Zip Code
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.zip_code }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="kelurahan_name">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          mat-sort-header
+        >
+          Kelurahan
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.kelurahan_name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="kecamatan_name">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          mat-sort-header
+        >
+          Kecamatan
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.kecamatan_name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="kab_kot_name">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          mat-sort-header
+        >
+          Kota
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.kab_kot_name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="provinsi_name">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          mat-sort-header
+        >
+          Provinsi
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.provinsi_name }}
+        </td>
+      </ng-container>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell text-center fs-5 noData" colspan="8">
+          No Data Available!
+        </td>
+      </tr>
+
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"
+        class="line-header"
+      ></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        class="color-row"
+        (click)="chooseCell(row)"
+      ></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+    </mat-paginator>
+  </mat-card>
+ 
+</mat-card>  

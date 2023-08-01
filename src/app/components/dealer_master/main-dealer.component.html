@@ -1,0 +1,38 @@
+<div class="tittle-heading">
+  <div class="page-title head-name-menu">
+    <h1 style="font-size: 30px" class="mt-4 title-font">Dealer Master</h1>
+  </div>
+</div>
+<mat-tab-group
+  (selectedTabChange)="onTabChange($event)"
+  color="accent"
+  animationDuration="200ms"
+>
+  <mat-tab label="Dealer">
+    <ng-template matTabContent>
+      <app-dealer-tab></app-dealer-tab>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Employee">
+    <ng-template matTabContent>
+      <app-employee-tab></app-employee-tab>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Branch">
+    <ng-template matTabContent> <app-branch-tab></app-branch-tab> </ng-template>
+  </mat-tab>
+  <mat-tab label="Rekening">
+    <ng-template matTabContent>
+      <app-rekening-tab></app-rekening-tab>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Paket Rekening">
+    <ng-template matTabContent>
+      <app-paket-tab></app-paket-tab>
+      <!-- <app-paket-tab *ngIf="!isLoading"></app-paket-tab>
+      <div *ngIf="isLoading">Loading...</div> -->
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

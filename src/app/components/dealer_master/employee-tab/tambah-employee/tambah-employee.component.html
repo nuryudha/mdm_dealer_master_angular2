@@ -1,0 +1,278 @@
+<h1 class="tittle">Tambah Dealer Employee</h1>
+<!-- ! Employee No -->
+<div class="row centerAll mb-3">
+  <label for="employee-no" class="col-3">Employee No</label>
+  <div class="col">
+    <mat-form-field appearance="fill" (click)="showSearch()">
+      <input matInput id="employee-no" [(ngModel)]="inputNoEmp" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! NPK -->
+<div class="row centerAll mb-3">
+  <label for="npk" class="col-3">NPK</label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <input matInput id="npk" [(ngModel)]="inputNpk" />
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Nama -->
+<div class="row centerAll mb-3">
+  <label for="nama" class="col-3">Nama</label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <input matInput id="nama" [(ngModel)]="inputNama" />
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! NIK -->
+<div class="row centerAll mb-3">
+  <label for="nik" class="col-3">NIK</label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <input matInput id="nik" [(ngModel)]="inputNik" />
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Eff Date -->
+<div class="row centerAll mb-3">
+  <label for="eff-date" class="col-3">Eff Date</label>
+  <div class="col-4">
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        [matDatepicker]="picker"
+        id="eff-date"
+        [(ngModel)]="inputEffDate"
+        [formControl]="date"
+        class="text-uppercase"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Employee Status -->
+<div class="row centerAll mb-3">
+  <label for="employee-status" class="col-3">Employee Status</label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="inputEmpStat" placeholder="--SILAHKAN PILIH--">
+        <mat-option> --SILAHKAN PILIH-- </mat-option>
+        <mat-option
+          *ngFor="let element of dataListEmplStat"
+          [value]="element.code"
+          >{{ element.code + " - " + element.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Job Status -->
+<div class="row centerAll mb-3">
+  <label for="job-status" class="col-3">Job Status</label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="inputJobStat" placeholder="--SILAHKAN PILIH--">
+        <mat-option> --SILAHKAN PILIH-- </mat-option>
+        <mat-option value="E"> EXTERNAL </mat-option>
+        <mat-option value="I"> INTERNAL </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Job  -->
+<div class="row centerAll mb-3">
+  <label for="job" class="col-3">Job </label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="inputListJob" placeholder="--SILAHKAN PILIH--">
+        <mat-option> --SILAHKAN PILIH-- </mat-option>
+        <mat-option
+          *ngFor="let element of dataListJobs"
+          [value]="element.job_code"
+          >{{ element.job_code + " - " + element.job_desc }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! NPWP  -->
+<div class="row centerAll mb-3">
+  <label for="NPWP" class="col-3">NPWP</label>
+  <div class="col-1">
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="inputNpwp0" />
+    </mat-form-field>
+  </div>
+  <div class="col-1">
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="inputNpwp1" />
+    </mat-form-field>
+  </div>
+  <div class="col-1">
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="inputNpwp2" />
+    </mat-form-field>
+  </div>
+  <div class="col-1">
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="inputNpwp3" />
+    </mat-form-field>
+  </div>
+  <div class="col-1">
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="inputNpwp4" />
+    </mat-form-field>
+  </div>
+  <div class="col-1">
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="inputNpwp5" />
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! NPWP Type  -->
+<div class="row centerAll mb-3">
+  <label for="npwp-type" class="col-3">NPWP Type </label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="inputNpwpType" placeholder="--SILAHKAN PILIH--">
+        <mat-option> --SILAHKAN PILIH-- </mat-option>
+        <mat-option value="1"> BADAN </mat-option>
+        <mat-option value="2"> PERORANGAN </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! PKP Type  -->
+<div class="row centerAll mb-3">
+  <label for="pkp-type" class="col-3">PKP Type </label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="inputPkpType" placeholder="--SILAHKAN PILIH--">
+        <mat-option> --SILAHKAN PILIH-- </mat-option>
+        <mat-option value="1"> PKP </mat-option>
+        <mat-option value="2"> NON PKP </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! No HP  -->
+<div class="row centerAll mb-3">
+  <label for="no-hp" class="col-3">No HP</label>
+  <div class="col-4">
+    <mat-form-field appearance="fill">
+      <input matInput id="no-hp" [(ngModel)]="inputNoHp" />
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Email  -->
+<div class="row centerAll mb-3">
+  <label for="email" class="col-3">Email</label>
+  <div class="col">
+    <mat-form-field appearance="fill">
+      <input matInput id="email" [(ngModel)]="inputEmail" />
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ! Tabel -->
+<div class="row centerAll mb-3">
+  <label class="col-3"></label>
+  <div class="col">
+    <mat-card class="tabel-tambah-informasi-employee">
+      <table mat-table matSort [dataSource]="dataSource" style="width: 100%">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-header"
+            mat-sort-header
+          >
+            No.
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.position }}
+          </td>
+        </ng-container>
+
+        <!-- NPK Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="text-header">NPK</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- Cabang Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef class="text-header">Cabang</th>
+          <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+        </ng-container>
+
+        <!-- Bank Account Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef class="text-header">
+            Bank Account
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+        </ng-container>
+
+        <!-- Account No Column -->
+        <ng-container matColumnDef="accountNo">
+          <th mat-header-cell *matHeaderCellDef class="text-header">
+            Account No
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+        </ng-container>
+
+        <!-- Account Name Column -->
+        <ng-container matColumnDef="accountName">
+          <th mat-header-cell *matHeaderCellDef class="text-header">
+            Account Name
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns"
+          class="line-header"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          class="color-row"
+        ></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator>
+    </mat-card>
+  </div>
+</div>
+
+<!-- ! Button Save Reset -->
+
+<div class="button-end">
+  <button mat-raised-button color="primary" class="me-2" (click)="testSave()">
+    Save
+  </button>
+  <button mat-raised-button color="warn" (click)="testReset()">Reset</button>
+</div>

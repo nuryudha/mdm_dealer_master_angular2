@@ -1,0 +1,213 @@
+<!-- !-----------------Informasi Paket Rekening --------------------  -->
+<mat-card class="form">
+  <div class="mt-2">
+    <div class="title-list">
+      <div class="flex">
+        <div class="me-auto">
+          <span class="title-font">{{ titlePaketRekening }}</span>
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          class="button-tambah"
+          (click)="tambahPaketRekening()"
+          *ngIf="info_paket_rek"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-plus"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+          Tambah
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="info_paket_rek">
+    <mat-card class="tabel-informasi-employee">
+      <!-- BUTTON SEARCH -->
+      <div class="d-flex flex-row-reverse seGaris mb-3">
+        <div>
+          <mat-form-field appearance="standard" class="form-search">
+            <input matInput [(ngModel)]="searchPaketRekening" />
+          </mat-form-field>
+        </div>
+        <div class="me-2 fontSearch">Search :</div>
+      </div>
+      <!-- TABEL -->
+      <table mat-table matSort [dataSource]="dataSource" style="width: 100%">
+        <!-- Kode Paket Column -->
+        <ng-container matColumnDef="kodePaket">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-header"
+            style="width: 7rem"
+            mat-sort-header
+          >
+            Kode Paket
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.kodePaket }}</td>
+        </ng-container>
+
+        <!-- Nama Paket Column -->
+        <ng-container matColumnDef="namaPaket">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-header"
+            style="width: 15rem"
+          >
+            Nama Paket
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.namaPaket }}
+          </td>
+        </ng-container>
+
+        <!-- APPL Tag Column -->
+        <ng-container matColumnDef="applTag">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-header"
+            style="width: 15rem"
+          >
+            APPL Tag
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.applTag }}</td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-header"
+            style="width: 7rem"
+          >
+            Status
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            class="text-header"
+            style="width: 13rem; text-align: center"
+          >
+            Action
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center">
+            <button
+              mat-raised-button
+              color="primary"
+              *ngIf="status_non_aktif"
+              (click)="detailPaketRek(element)"
+              class="me-2"
+            >
+              Detail
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              class="button-non-aktifkan"
+              (click)="changeStatus()"
+              *ngIf="status_non_aktif"
+            >
+              Non Aktifkan
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              class="button-aktifkan"
+              (click)="changeStatus()"
+              *ngIf="status_aktif"
+            >
+              Aktifkan
+            </button>
+          </td>
+        </ng-container>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell text-center fs-5 noData" colspan="8">
+            No Data Available!
+          </td>
+        </tr>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns"
+          class="line-header"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          class="color-row"
+        ></tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator>
+    </mat-card>
+  </div>
+
+  <!-- ! -----------------Tambah Paket Rekening-----------------  -->
+
+  <div *ngIf="add_paket_rek">
+    <!-- BUTTON TAMBAH -->
+    <!-- <div class="d-flex flex-row mb-3">
+      <button
+        mat-raised-button
+        color="primary"
+        class="button-back"
+        (click)="backFormEmployee()"
+      >
+        Back
+      </button>
+    </div> -->
+
+    <mat-card class="tambah-informasi-employee">
+      <app-tambah-paket-rekening
+        (backButtonClicked)="backPaketRekening()"
+      ></app-tambah-paket-rekening>
+    </mat-card>
+  </div>
+
+  <!-- ! -----------------Detail Paket Rekening-----------------  -->
+
+  <div *ngIf="detail_paket_rek">
+    <!-- BUTTON TAMBAH -->
+    <!-- <div class="d-flex flex-row mb-3">
+      <button
+        mat-raised-button
+        color="primary"
+        class="button-back"
+        (click)="backFormEmployee()"
+      >
+        Back
+      </button>
+    </div> -->
+
+    <mat-card class="tambah-informasi-employee">
+      <app-detail-paket-rekening
+        (backButtonClicked)="backPaketRekening()"
+        [row]="selectedRow"
+      ></app-detail-paket-rekening>
+    </mat-card>
+  </div>
+</mat-card>

@@ -1,0 +1,119 @@
+mat-card.form {
+  margin: 1rem;
+  border-radius: 15px;
+}
+
+.title-list {
+  position: relative;
+  border-bottom: 4px solid;
+  border-bottom-color: #dcdcdc;
+}
+
+.title-list span {
+  display: absolute;
+  font-size: 25px;
+  border-bottom: 4px solid #fcbd00;
+  padding-bottom: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.title-font {
+  font-family: Roboto;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+}
+
+.button-tambah {
+  position: absolute;
+  height: 45px;
+  bottom: 4px;
+  right: 6px;
+}
+
+.button-back {
+  position: absolute;
+  height: 45px;
+  top: 75px;
+  left: 20px;
+}
+
+mat-card.tabel-informasi-employee {
+  margin-top: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+mat-card.tambah-informasi-employee {
+  margin-top: 5rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+tr.line-header {
+  border-top: solid 1px rgb(224, 224, 224);
+}
+
+tr.color-row:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tr.color-row:hover {
+  background: rgb(206, 234, 252);
+}
+
+th.text-header {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.button-aktifkan {
+  background-color: #0d9c00;
+  border-color: #0d9c00;
+  color: #fff;
+}
+
+.button-aktifkan:hover {
+  background-color: #086300;
+  border-color: #086300;
+  color: #fff;
+}
+
+.button-non-aktifkan {
+  background-color: #f44336;
+  border-color: #f44336;
+  color: #fff;
+}
+
+.button-non-aktifkan:hover {
+  background-color: #a82f26;
+  border-color: #a82f26;
+  color: #fff;
+}
+
+mat-card.tambah-informasi-employee {
+  margin-top: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.noData {
+  font-family: Roboto;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+  background-color: #f2f2f2;
+}
+
+.seGaris {
+  align-items: baseline;
+}
+
+.fontSearch {
+  font-family: Roboto;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+}

@@ -1,0 +1,87 @@
+.title-list {
+  position: relative;
+  border-bottom: 4px solid;
+  border-bottom-color: #dcdcdc;
+}
+
+.title-list span {
+  display: absolute;
+  font-size: 25px;
+  border-bottom: 4px solid #fcbd00;
+  padding-bottom: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.title-font {
+  font-family: Roboto;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+}
+
+.button-close {
+  position: absolute;
+  height: 45px;
+  bottom: 4px;
+  right: 6px;
+}
+
+mat-card.tabel-search-employee {
+  margin-top: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  overflow-x: auto;
+}
+
+.centerAll {
+  display: flex;
+  align-items: baseline;
+}
+
+.centerButton {
+  display: flex;
+  align-items: baseline;
+  margin-top: 4px;
+}
+
+/* mat-form-field {
+  width: 100%;
+} */
+
+tr.line-header {
+  border-top: solid 1px rgb(224, 224, 224);
+}
+
+tr.color-row:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tr.color-row:hover {
+  background: rgb(206, 234, 252);
+}
+
+th.text-header {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.noData {
+  font-family: Roboto;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+  background-color: #f2f2f2;
+}
+
+.seGaris{
+  align-items: baseline;
+}
+
+.fontSearch{
+  font-family: Roboto;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+}

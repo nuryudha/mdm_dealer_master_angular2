@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html,
+body {
+  height: 100%;
+  background-color: #e2eef1;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.req::before {
+    content: "*";
+    display: inline;
+    color: #E6674A;
+    margin: 0 3px;
+    font-weight: 400;
+}
+
+/* .mat-form-field-type-mat-select .mat-form-field-label{
+    top:1em;
+} */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

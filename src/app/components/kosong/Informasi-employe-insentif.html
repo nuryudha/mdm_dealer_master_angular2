@@ -1,0 +1,154 @@
+<div *ngIf="employee_form">
+  <mat-card class="form">
+    <div class="mt-2">
+      <div class="title-list">
+        <div class="flex">
+          <div class="me-auto">
+            <span class="title-font">Informasi Employee Insentif </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="employee_form">
+      <mat-card class="tabel-informasi-employee">
+        <!-- BUTTON SEARCH -->
+        <div class="d-flex flex-row-reverse">
+          <mat-form-field appearance="outline" class="form-search">
+            <mat-label>
+              <mat-icon>search</mat-icon>
+              Search
+            </mat-label>
+            <input
+              matInput
+              [(ngModel)]="search_employee_insen"
+              (keyup)="applyFilter()"
+            />
+          </mat-form-field>
+        </div>
+        <!-- ! TABEL -->
+        <table mat-table matSort [dataSource]="dataSource" style="width: 100%">
+          <!-- No Column -->
+          <ng-container matColumnDef="position">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-header"
+              style="width: 10rem"
+              mat-sort-header
+            >
+              No.
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-header"
+              style="width: 20rem"
+            >
+              Name
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.name }}
+            </td>
+          </ng-container>
+
+          <!-- NPK Column -->
+          <ng-container matColumnDef="weight">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-header"
+              style="width: 10rem"
+            >
+              NPK
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+          </ng-container>
+
+          <!-- NIK Column -->
+          <ng-container matColumnDef="symbol">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-header"
+              style="width: 10rem"
+            >
+              NIK
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+          </ng-container>
+
+          <!-- Job Column -->
+          <ng-container matColumnDef="job">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-header"
+              style="width: 20rem"
+            >
+              Job
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-header"
+              style="width: 10rem"
+            >
+              Status
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+          </ng-container>
+
+          <!-- Action Column -->
+          <ng-container matColumnDef="action">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              class="text-header"
+              style="width: auto; text-align: center"
+            >
+              Action
+            </th>
+            <td mat-cell *matCellDef="let element" style="text-align: center">
+              <button mat-raised-button color="primary">Detail</button>
+            </td>
+          </ng-container>
+
+          <!-- NO DATA COULMN -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell text-center fs-5 noData" colspan="8">
+              No Data Available!
+            </td>
+          </tr>
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns"
+            class="line-header"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            class="color-row"
+          ></tr>
+        </table>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label="Select page of periodic elements"
+        >
+        </mat-paginator>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>

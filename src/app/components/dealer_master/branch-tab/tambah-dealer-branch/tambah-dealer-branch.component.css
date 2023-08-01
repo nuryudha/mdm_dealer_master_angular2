@@ -1,0 +1,75 @@
+.title-list {
+  position: relative;
+  border-bottom: 4px solid;
+  border-bottom-color: #dcdcdc;
+}
+
+.title-list span {
+  display: absolute;
+  font-size: 25px;
+  border-bottom: 4px solid #fcbd00;
+  padding-bottom: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.title-font {
+  font-family: Roboto;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+}
+
+.centerAll {
+  display: flex;
+  align-items: baseline;
+  margin-top: 2rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.button-tambah {
+  position: absolute;
+  height: 40px;
+  bottom: 4px;
+  right: 6px;
+}
+
+.button-close {
+  background-color: #ff6d62;
+  border-color: #ff6d62;
+  color: #fff;
+}
+
+.button-close:hover {
+  background-color: #ca584f;
+  border-color: #ca584f;
+  color: #fff;
+}
+
+.button-reset {
+  background-color: #06be3d;
+  border-color: #06be3d;
+  color: #fff;
+}
+
+.button-reset:hover {
+  background-color: #00ac33;
+  border-color: #00ac33;
+  color: #fff;
+}
+
+::ng-deep .mat-form-field-flex.ng-tns-c84-44{
+  background-color: white;
+}
+
+::ng-deep .mat-form-field-flex.ng-tns-c84-43{
+  background-color: white;
+}
+
+

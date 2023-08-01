@@ -1,0 +1,169 @@
+<!-- !-----------------Map Dealer Branch --------------------  -->
+<mat-card class="form">
+  <div class="mt-2">
+    <div class="title-list">
+      <div class="flex">
+        <div class="me-auto">
+          <span class="title-font">Informasi Rekening </span>
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          class="button-tambah"
+          (click)="showFormTambah()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-plus"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+          Tambah
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- ! TABEL -->
+  <mat-card class="tabel-informasi-employee">
+    <!-- BUTTON SEARCH -->
+    <div class="d-flex flex-row-reverse">
+      <mat-form-field appearance="outline" class="form-search">
+        <mat-label>
+          <mat-icon>search</mat-icon>
+          Search
+        </mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <!-- TABEL -->
+    <table mat-table matSort [dataSource]="dataSource" style="width: 100%">
+      <!-- Bank Column -->
+      <ng-container matColumnDef="bank">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          style="width: 10rem"
+          mat-sort-header
+        >
+          Bank
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.bankCode + " - " + element.bankName }}
+        </td>
+      </ng-container>
+
+      <!-- Bank Branch Column -->
+      <ng-container matColumnDef="bankBranch">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          style="width: 10rem"
+        >
+          Bank Branch
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{
+            element.bankBiCode +
+              " - " +
+              element.bankCity +
+              " - " +
+              element.bankBranch
+          }}
+        </td>
+      </ng-container>
+
+      <!-- Account No Column -->
+      <ng-container matColumnDef="accountNo">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          style="width: 10rem"
+        >
+          Account No
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.accountNo }}</td>
+      </ng-container>
+
+      <!-- Account Name Column -->
+      <ng-container matColumnDef="accountName">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          style="width: 10rem"
+        >
+          Account Name
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.accountName }}</td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          style="width: 10rem"
+        >
+          Status
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.accountStatus }}</td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="text-header"
+          style="width: 5rem; text-align: center"
+        >
+          Action
+        </th>
+        <td mat-cell *matCellDef="let element" style="text-align: center">
+          <button
+            mat-raised-button
+            color="primary"
+            class="button-detail"
+            (click)="showFormDetail(element)"
+          >
+            Detail
+          </button>
+        </td>
+      </ng-container>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell text-center fs-5 noData" colspan="8">
+          No Data Available!
+        </td>
+      </tr>
+
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"
+        class="line-header"
+      ></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        class="color-row"
+      ></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </mat-card>
+</mat-card>
